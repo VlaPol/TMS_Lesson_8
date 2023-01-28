@@ -78,11 +78,11 @@ public class HomeWork8 {
                     int[] tmpArray3 = UserInputUtils.getNewArray(arrDimension2);
                     System.out.println(Arrays.toString(tmpArray3));
                     System.out.print("Enter page number: ");
-                    int pageNumber = scanner.nextInt() + 1;
-                    System.out.print("Enter quantity: ");
+                    int pageNumber = scanner.nextInt();
+                    System.out.print("Enter number of elements on the page: ");
                     int quantity = scanner.nextInt();
                     System.out.println(Arrays.toString(
-                            ArrayUtils.getSubArrayWithOneBound(tmpArray3, pageNumber, pageNumber + quantity)));
+                            ArrayUtils.getSubArrayWithOneBound(tmpArray3, pageNumber,  quantity)));
                 }
                 case 0 -> {
                     System.out.println("See you!!!");

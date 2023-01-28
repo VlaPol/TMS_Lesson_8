@@ -52,7 +52,14 @@ public class ArrayUtils {
              throw new IllegalArgumentException("Wrong page number or quantity of substring elements");
          }
 
-         int [] tmpArray = getSubArray(currentArray, page, quantity);
+         int lBound = (page-1)*quantity;
+         int rBound = lBound + quantity;
+
+         if(rBound > currentArray.length){
+             rBound = currentArray.length;
+         }
+
+         int [] tmpArray = getSubArray(currentArray, lBound , rBound);
 
          return tmpArray;
     }
