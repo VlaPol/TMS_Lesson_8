@@ -2,18 +2,24 @@ import java.util.Scanner;
 
 public class UserInputUtils {
 
-    public static int [] getNewArray(int arrayDimension) throws IllegalArgumentException{
+    public static int[] getNewArray() throws IllegalArgumentException {
 
-        if(arrayDimension < 2){
-            throw new IllegalArgumentException("Array should have at least two numbers !");
+        System.out.print("Enter number of elements: ");
+
+        Scanner scanner = new Scanner(System.in);
+        int arrayDimension = scanner.nextInt();
+
+        if (arrayDimension < 0) {
+            throw new IllegalArgumentException("Wrong number of elements!");
         }
 
-        int [] createdArray = new int[arrayDimension];
+        int[] createdArray = new int[arrayDimension];
 
-        for(int i = 0; i < arrayDimension; i++){
-            System.out.print("Enter number: ");
-            Scanner scanner = new Scanner(System.in);
-            createdArray[i] = scanner.nextInt();
+        if (arrayDimension != 0) {
+            for (int i = 0; i < arrayDimension; i++) {
+                System.out.print("Enter number: ");
+                createdArray[i] = scanner.nextInt();
+            }
         }
         return createdArray;
     }

@@ -3,24 +3,16 @@
  */
 public class DateTimeUtils {
 
-    public static String getLeapYear(String year){
+    public static boolean isLeapYear(int year) {
 
-            if (Integer.parseInt(year) % 4 == 0) {
-
-                if (Integer.parseInt(year) % 100 == 0) {
-
-                    if (Integer.parseInt(year) % 400 == 0) {
-                        return " - is leap year";
-                    }else {
-                        return " - is not leap year";
-                    }
-                }else {
-                    return " - is leap year";
-                }
-            }else {
-                return " - is not leap year";
+        if (year % 4 == 0) {
+            if (year % 100 == 0) {
+                return year % 400 == 0;
+            } else {
+                return true;
             }
-
+        } else {
+            return false;
+        }
     }
-
 }
