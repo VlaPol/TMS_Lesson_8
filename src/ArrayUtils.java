@@ -15,10 +15,6 @@ public class ArrayUtils {
 
     public static void getReversArray(int[] currentArray) {
 
-        if (currentArray.length == 0) {
-            throw new IllegalArgumentException("Can't revers array with 0 elements");
-        }
-
         for (int i = 0, j = currentArray.length - 1; i <= j; i++, j--) {
             int tmpNumber = currentArray[i];
             currentArray[i] = currentArray[j];
@@ -28,10 +24,6 @@ public class ArrayUtils {
     }
 
     public static int getIndexOfFindFirstElement(int[] currentArray, int lookingElementIndex) {
-
-        if (currentArray.length == 0) {
-            throw new IllegalArgumentException("Can't looking element index in the array with 0 elements");
-        }
 
         for (int i = 0; i < currentArray.length; i++) {
             if (currentArray[i] == lookingElementIndex) {
@@ -43,11 +35,7 @@ public class ArrayUtils {
 
     public static int[] getSubArray(int[] currentArray, int leftBoundInclusive, int rightBoundExclusive) {
 
-        if (currentArray.length == 0) {
-            throw new IllegalArgumentException("Can't work with 0-elements array");
-        }
-
-        if (leftBoundInclusive < 0 || rightBoundExclusive > currentArray.length) {
+        if (leftBoundInclusive < 0 || rightBoundExclusive > currentArray.length || leftBoundInclusive > rightBoundExclusive) {
             throw new IllegalArgumentException("Bad one of bounds");
         }
 
@@ -72,7 +60,7 @@ public class ArrayUtils {
             throw new IllegalArgumentException("Page number should start from 1!");
         }
 
-        if (currentArray.length < ((pageNumber - 1) * elementsOnPage) && currentArray.length < pageNumber * elementsOnPage) {
+        if (currentArray.length < ((pageNumber - 1) * elementsOnPage)) {
             throw new IllegalArgumentException("Wrong page number or quantity of elements on the page");
         }
 
